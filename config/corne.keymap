@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
+/dts-v1/;
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
