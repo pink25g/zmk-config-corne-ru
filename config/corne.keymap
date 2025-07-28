@@ -110,10 +110,10 @@
             //                             | RSE | SPC | LWR |   | LWR | BKSP | RSE |
 
             bindings = <
-&mt LWIN RBKT    &kp Q  &kp W  &kp E      &kp R            &kp T        &kp Y      &kp U           &kp I      &kp P    &kp P     &mt RWIN LBKT
-&mt LCTRL GRAVE  &kp A  &kp S  &kp D      &kp F            &kp G        &kp H      &kp J           &kp K      &kp L    &kp SEMI  &mt RCTRL SQT 
-&mt LALT BSLH    &kp Z  &kp X  &kp C      &kp V            &kp B        &kp N      &kp M           &kp COMMA  &kp DOT  &kp FSLH  &mt RALT MINUS
-                               &lt 2 TAB  &mt LSHFT SPACE  &lt 1 RET    &lt 1 ESC  &mt RSHFT BSPC  &lt 2 DEL
+&mt LWIN LBKT    &kp Q  &kp W  &kp E      &kp R           &mt GRAVE T    &kp Y        &kp U           &mt O I    &kp P    &kp LBKT  &mt RWIN RBKT
+&mt LCTRL GRAVE  &kp A  &kp S  &kp D      &kp F           &kp G          &kp H        &kp J           &kp K      &kp L    &kp SEMI  &mt RCTRL SQT
+&mt LALT BSLH    &kp Z  &kp X  &kp C      &kp V           &kp B          &kp N        &mt RBKT M      &kp COMMA  &kp DOT  &kp FSLH  &mt RALT MINUS
+                               &lt 2 TAB  &mt CAPS LSHFT  &lt 1 SPACE    &lt 1 ENTER  &mt RSHFT BSPC  &lt 2 DEL
             >;
         };
 
