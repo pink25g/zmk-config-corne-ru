@@ -4,27 +4,51 @@
 
 / {
     behaviors {
-        td_space_dot: tap_dance_space_dot {
+        td_space_sent: tap_dance_space_sentence {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SPACE>, <&kp DOT>;
-            display-name = "Space/Dot";
+            tapping-term-ms = <220>;
+            bindings = <&kp SPACE>, <&sentence_dot>, <&ellipsis_macro>;
+            display-name = "Space/Sentence/Ellipsis";
         };
 
         spc_num: space_num_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <160>;
             require-prior-idle-ms = <125>;
-            bindings = <&mo>, <&td_space_dot>;
+            bindings = <&mo>, <&td_space_sent>;
             display-name = "Space/Num";
         };
     };
 
     macros {
+        sentence_dot: sentence_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <
+                &kp DOT
+                &kp SPACE
+                &kp LSHFT
+            >;
+        };
+
+        ellipsis_macro: ellipsis_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <
+                &kp DOT
+                &kp DOT
+                &kp DOT
+            >;
+        };
+
         paren_pair: paren_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -113,7 +137,7 @@
             label = "NUM_LEFT";
         };
 
-        punc_sym_right_layer {
+        punc_right_layer {
             bindings = <
 &trans      &trans   &trans   &trans   &trans    &trans          &kp EXCL      &kp QMARK    &kp COLON    &kp SEMI     &kp DQT      &kp SQT
 &trans      &trans   &trans   &trans   &trans    &trans          &kp COMMA     &kp DOT      &kp MINUS    &kp UNDER    &kp EQUAL    &kp PLUS
