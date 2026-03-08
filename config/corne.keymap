@@ -11,37 +11,37 @@
 &kp TAB    &kp Q    &kp W    &kp E    &kp R    &kp T            &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
 &kp ESC    &kp A    &kp S    &kp D    &kp F    &kp G            &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp DEL
 &kp LSHFT  &kp Z    &kp X    &kp C    &kp V    &kp B            &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH    &kp RSHFT
-                                 &mt LCTRL ESC   &lt 1 SPACE   &mt LALT TAB      &lt 3 ENTER    &lt 2 BSPC    &mt RCTRL DEL
+                                 &mt LCTRL ESC   &lt 2 TAB     &kp LALT         &lt 3 ENTER     &lt 1 SPACE    &mt RCTRL DEL
             >;
             label = "BASE";
         };
 
-        num_nav_layer {
+        num_left_layer {
             bindings = <
-&trans      &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT       &kp N7       &kp N8       &kp N9       &kp MINUS     &kp HOME     &trans
-&trans      &kp AMPS &kp STAR &kp LPAR &kp RPAR &kp EQUAL       &kp N4       &kp N5       &kp N6       &kp PLUS      &kp END      &trans
-&trans      &kp LBKT &kp RBKT &kp LBRC &kp RBRC &kp BSLH        &kp N1       &kp N2       &kp N3       &kp UP        &kp LEFT     &trans
-                                 &trans         &trans          &trans             &kp N0         &kp DOT      &kp RIGHT
+&kp HOME   &kp N7   &kp N8   &kp N9   &kp MINUS &kp PLUS        &kp PG_UP     &kp HOME     &kp UP       &kp END      &trans       &trans
+&kp END    &kp N4   &kp N5   &kp N6   &kp STAR  &kp EQUAL       &kp PG_DN     &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
+&kp PG_UP  &kp N1   &kp N2   &kp N3   &kp N0    &kp DOT         &trans        &trans       &trans       &trans       &trans       &trans
+                                 &trans          &trans         &trans            &trans         &trans        &trans
             >;
-            label = "NUM_NAV";
+            label = "NUM_LEFT";
         };
 
-        sym_layer {
+        punc_sym_right_layer {
             bindings = <
-&kp GRAVE   &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT       &kp CARET    &kp AMPS     &kp STAR     &kp MINUS    &kp PLUS     &trans
-&kp TILDE   &kp LT   &kp GT   &kp LPAR &kp RPAR &kp PIPE        &kp LBRC     &kp RBRC     &kp LBKT     &kp RBKT     &kp COLON    &kp DQT
-&trans      &kp BSLH &kp SLASH &kp EQUAL &kp UNDER &kp QMARK    &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp SQT      &trans
-                                 &trans         &trans          &trans             &trans         &trans       &trans
+&trans      &trans   &trans   &trans   &trans    &trans          &kp EXCL      &kp QMARK    &kp COLON    &kp SEMI     &kp DQT      &kp SQT
+&trans      &trans   &trans   &trans   &trans    &trans          &kp COMMA     &kp DOT      &kp UNDER    &kp MINUS    &kp PLUS     &kp EQUAL
+&trans      &trans   &trans   &trans   &trans    &trans          &kp LPAR      &kp RPAR     &kp LBKT     &kp RBKT     &kp LBRC     &kp RBRC
+                                 &trans          &trans         &trans            &trans         &trans        &trans
             >;
-            label = "SYM";
+            label = "PUNC_SYM_RIGHT";
         };
 
         fn_bt_layer {
             bindings = <
-&kp F1      &kp F2   &kp F3   &kp F4   &kp F5   &kp F6          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
-&kp F7      &kp F8   &kp F9   &kp F10  &kp F11  &kp F12         &kp PG_UP    &kp C_PREV   &kp C_PP     &kp C_NEXT   &kp C_MUTE   &trans
-&trans      &trans   &trans   &trans   &trans   &trans          &kp PG_DN    &kp C_VOL_DN &kp C_VOL_UP &trans       &trans       &trans
-                                 &trans         &trans          &trans             &trans         &trans       &trans
+&kp F1      &kp F2   &kp F3   &kp F4   &kp F5    &kp F6          &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
+&kp F7      &kp F8   &kp F9   &kp F10  &kp F11   &kp F12         &kp PG_UP     &kp C_PREV   &kp C_PP     &kp C_NEXT   &kp C_MUTE   &trans
+&trans      &trans   &trans   &trans   &trans    &trans          &kp PG_DN     &kp C_VOL_DN &kp C_VOL_UP &trans       &trans       &trans
+                                 &trans          &trans         &trans            &trans         &trans        &trans
             >;
             label = "FN_BT";
         };
