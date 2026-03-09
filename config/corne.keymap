@@ -13,217 +13,225 @@ behaviors {
         bindings = <&kp>;
     };
 
-thumb_shift_ctrl: thumb_shift_ctrl {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    flavor = "tap-preferred";
-    tapping-term-ms = <180>;
-    quick-tap-ms = <150>;
-    require-prior-idle-ms = <100>;
-    hold-trigger-on-release;
-    bindings = <&kp>, <&sticky_shift_quick>;
-};
+    thumb_shift_ctrl: thumb_shift_ctrl {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <180>;
+        quick-tap-ms = <150>;
+        require-prior-idle-ms = <100>;
+        hold-trigger-on-release;
+        bindings = <&kp>, <&sticky_shift_quick>;
+    };
 
+    td_space_sent: tap_dance_space_sentence {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <280>;
+        bindings = <&kp SPACE>, <&sentence_dot_shift>, <&ellipsis_macro>;
+    };
 
-td_space_sent: tap_dance_space_sentence {
-compatible = "zmk,behavior-tap-dance";
-#binding-cells = <0>;
-tapping-term-ms = <280>;
-bindings = <&kp SPACE>, <&sentence_dot_shift>, <&ellipsis_macro>;
-};
-
-spc_num: space_num_hold_tap {
-compatible = "zmk,behavior-hold-tap";
-#binding-cells = <2>;
-flavor = "tap-preferred";
-tapping-term-ms = <220>;
-quick-tap-ms = <160>;
-require-prior-idle-ms = <125>;
-bindings = <&mo>, <&td_space_sent>;
-};
-
+    spc_num: space_num_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <220>;
+        quick-tap-ms = <160>;
+        require-prior-idle-ms = <125>;
+        bindings = <&mo>, <&td_space_sent>;
+    };
 };
 
 macros {
 
-sentence_dot_shift: sentence_dot_shift {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <
-&kp DOT
-&kp SPACE
-&sk LSHFT
->;
-};
+    sentence_dot_shift: sentence_dot_shift {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <
+            &kp DOT
+            &kp SPACE
+            &sk LSHFT
+        >;
+    };
 
-ellipsis_macro: ellipsis_macro {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <
-&kp DOT
-&kp DOT
-&kp DOT
->;
-};
+    ellipsis_macro: ellipsis_macro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <
+            &kp DOT
+            &kp DOT
+            &kp DOT
+        >;
+    };
 
-paren_pair: paren_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp LPAR>, <&kp RPAR>;
-};
+    paren_pair: paren_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LPAR>, <&kp RPAR>;
+    };
 
-bracket_pair: bracket_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp LBKT>, <&kp RBKT>;
-};
+    bracket_pair: bracket_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LBKT>, <&kp RBKT>;
+    };
 
-brace_pair: brace_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp LBRC>, <&kp RBRC>;
-};
+    brace_pair: brace_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LBRC>, <&kp RBRC>;
+    };
 
-angle_pair: angle_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp LT>, <&kp GT>;
-};
+    angle_pair: angle_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp LT>, <&kp GT>;
+    };
 
-arrow_pair: arrow_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp MINUS>, <&kp GT>;
-};
+    dquote_pair: dquote_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp DQT>, <&kp DQT>;
+    };
 
-fat_arrow_pair: fat_arrow_pair {
-compatible = "zmk,behavior-macro";
-#binding-cells = <0>;
-bindings = <&kp EQUAL>, <&kp GT>;
-};
+    squote_pair: squote_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp SQT>, <&kp SQT>;
+    };
 
+    arrow_pair: arrow_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp MINUS>, <&kp GT>;
+    };
+
+    fat_arrow_pair: fat_arrow_pair {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp EQUAL>, <&kp GT>;
+    };
 };
 
 keymap {
-compatible = "zmk,keymap";
+    compatible = "zmk,keymap";
 
-/* BASE */
-
-default_layer {
-
-bindings = <
+    /* BASE */
+    default_layer {
+        bindings = <
 
 &kp TAB   &kp Q   &kp W   &kp E   &kp R   &kp T          &kp Y   &kp U   &kp I   &kp O   &kp P   &kp BSPC
 &kp ESC   &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G   &kp H   &kp J   &kp K   &kp L   &kp SEMI &kp DEL
-&trans  &kp Z   &kp X   &kp C   &kp V   &kp B          &kp N   &kp M   &kp COMMA &kp DOT &kp SLASH &trans
+&trans    &kp Z   &kp X   &kp C   &kp V   &kp B          &kp N   &kp M   &kp COMMA &kp DOT &kp SLASH &trans
 
- &thumb_shift_ctrl LCTRL LSHFT  &lt 2 TAB  &kp LALT      &spc_num 1 0  &lt 3 ENTER  &thumb_shift_ctrl RCTRL RSHFT
->;
+                &thumb_shift_ctrl LCTRL LSHFT  &lt 2 TAB  &kp LALT      &spc_num 1 0  &lt 3 ENTER  &thumb_shift_ctrl RCTRL RSHFT
+        >;
 
-label = "BASE";
+        label = "BASE";
+    };
 
-};
+    /* NUM */
+    num_layer {
+        bindings = <
 
-/* NUM */
-
-num_layer {
-
-bindings = <
-
-&kp N7 &kp N8 &kp N9 &kp MINUS &kp PLUS &kp HOME     &kp PG_UP &kp HOME &kp UP &kp END &trans &trans
-&kp N4 &kp N5 &kp N6 &kp STAR  &kp EQUAL &kp END     &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &trans &trans
-&kp N1 &kp N2 &kp N3 &kp N0    &kp DOT   &kp PG_UP   &trans &trans &trans &trans &trans &trans
+&kp N7 &kp N8 &kp N9 &kp MINUS &kp PLUS  &kp HOME     &kp PG_UP &kp HOME  &kp UP    &kp END   &trans &trans
+&kp N4 &kp N5 &kp N6 &kp STAR  &kp EQUAL &kp END      &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &trans &trans
+&kp N1 &kp N2 &kp N3 &kp N0    &kp DOT   &kp PG_UP    &trans    &trans    &trans    &trans    &trans &trans
 
         &trans &trans &trans &trans &trans &trans
->;
+        >;
 
-label = "NUM";
+        label = "NUM";
+    };
 
-};
+    /* NAV + PUNC */
+    nav_layer {
+        bindings = <
 
-/* NAV + PUNC */
-
-nav_layer {
-    bindings = <
-
-&kp HOME &kp END &kp PG_UP &kp PG_DN &trans &trans      &kp EXCL &kp QMARK &kp COLON &kp SEMI &kp DQT &kp SQT
-&kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LC(BSPC) &kp DEL &kp COMMA &kp DOT &kp MINUS &kp UNDER &kp EQUAL &kp PLUS
-&kp LC(LEFT) &kp LC(RIGHT) &kp HOME &kp END &trans &trans &kp LPAR &kp RPAR &kp BSLH &kp PIPE &kp LBKT &kp RBKT
+&kp HOME     &kp END       &kp PG_UP      &kp PG_DN      &trans          &trans      &kp EXCL  &kp QMARK &kp COLON &kp SEMI  &kp DQT   &kp SQT
+&kp LEFT     &kp DOWN      &kp UP         &kp RIGHT      &kp LC(BSPC)    &kp DEL     &kp COMMA &kp DOT   &kp MINUS &kp UNDER &kp EQUAL &kp PLUS
+&kp LC(LEFT) &kp LC(RIGHT) &kp HOME       &kp END        &trans          &trans      &kp LPAR  &kp RPAR  &kp BSLH  &kp PIPE  &kp LBKT  &kp RBKT
 
         &trans &trans &trans &trans &trans &trans
-    >;
+        >;
 
-    label = "NAV_PUNC";
-};
+        label = "NAV_PUNC";
+    };
 
-
-/* FN */
-
-fn_layer {
-
-bindings = <
+    /* FN */
+    fn_layer {
+        bindings = <
 
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR &trans
-&kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12    &kp PG_UP &kp C_PREV &kp C_PP &kp C_NEXT &kp C_MUTE &trans
-&trans &trans &trans &trans &trans &trans      &kp PG_DN &kp C_VOL_DN &kp C_VOL_UP &trans &trans &trans
+&kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12    &kp PG_UP    &kp C_PREV   &kp C_PP     &kp C_NEXT   &kp C_MUTE &trans
+&trans &trans &trans &trans &trans &trans       &kp PG_DN    &kp C_VOL_DN &kp C_VOL_UP &trans       &trans     &trans
 
-      &trans &trans &trans &trans &trans &trans
->;
+        &trans &trans &trans &trans &trans &trans
+        >;
 
-label = "FN_BT";
-
-};
-
+        label = "FN_BT";
+    };
 };
 
 /* COMBOS */
-
 combos {
+    compatible = "zmk,combos";
 
-compatible = "zmk,combos";
+    combo_paren {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <7 8>;
+        bindings = <&paren_pair>;
+    };
 
-combo_paren {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <7 8>;
-bindings = <&paren_pair>;
-};
+    combo_bracket {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <8 9>;
+        bindings = <&bracket_pair>;
+    };
 
-combo_bracket {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <8 9>;
-bindings = <&bracket_pair>;
-};
+    combo_brace {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <9 10>;
+        bindings = <&brace_pair>;
+    };
 
-combo_brace {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <9 10>;
-bindings = <&brace_pair>;
-};
+    combo_angle {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <19 20>;
+        bindings = <&angle_pair>;
+    };
 
-combo_angle {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <19 20>;
-bindings = <&angle_pair>;
-};
+    combo_dquote {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <20 21>;
+        bindings = <&dquote_pair>;
+    };
 
-combo_arrow {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <33 34>;
-bindings = <&arrow_pair>;
-};
+    combo_squote {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <21 22>;
+        bindings = <&squote_pair>;
+    };
 
-combo_fat_arrow {
-timeout-ms = <40>;
-require-prior-idle-ms = <125>;
-key-positions = <31 32>;
-bindings = <&fat_arrow_pair>;
-};
+    combo_arrow {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <33 34>;
+        bindings = <&arrow_pair>;
+    };
 
+    combo_fat_arrow {
+        timeout-ms = <40>;
+        require-prior-idle-ms = <125>;
+        key-positions = <31 32>;
+        bindings = <&fat_arrow_pair>;
+    };
 };
 
 };
