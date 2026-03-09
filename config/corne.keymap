@@ -5,6 +5,24 @@
 / {
 
 behaviors {
+sticky_shift_quick: sticky_shift_quick {
+    compatible = "zmk,behavior-sticky-key";
+    #binding-cells = <1>;
+    release-after-ms = <1200>;
+    quick-release;
+};
+
+thumb_shift_ctrl: thumb_shift_ctrl {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <180>;
+    quick-tap-ms = <150>;
+    require-prior-idle-ms = <100>;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&sticky_shift_quick>;
+};
+
 
 td_space_sent: tap_dance_space_sentence {
 compatible = "zmk,behavior-tap-dance";
@@ -96,9 +114,9 @@ bindings = <
 
 &kp TAB   &kp Q   &kp W   &kp E   &kp R   &kp T          &kp Y   &kp U   &kp I   &kp O   &kp P   &kp BSPC
 &kp ESC   &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G   &kp H   &kp J   &kp K   &kp L   &kp SEMI &kp DEL
-&kp LSHFT &kp Z   &kp X   &kp C   &kp V   &kp B          &kp N   &kp M   &kp COMMA &kp DOT &kp SLASH &kp RSHFT
+&trans  &kp Z   &kp X   &kp C   &kp V   &kp B          &kp N   &kp M   &kp COMMA &kp DOT &kp SLASH &trans
 
-                &mt LCTRL ESC  &lt 2 TAB  &kp LALT      &lt 3 ENTER  &spc_num 1 0  &mt RCTRL DEL
+ &thumb_shift_ctrl LCTRL LSHFT  &lt 2 TAB  &kp LALT      &spc_num 1 0  &lt 3 ENTER  &thumb_shift_ctrl RCTRL RSHFT
 >;
 
 label = "BASE";
