@@ -8,12 +8,9 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <280>;
-            bindings = <
-                &kp SPACE
-                &sentence_dot
-                &kp DOT &kp DOT &kp DOT
-        >;
-    };
+            bindings = <&kp SPACE>, <&sentence_dot_shift>, <&ellipsis_macro>;
+            display-name = "Space/Sentence/Ellipsis";
+        };
 
         spc_num: space_num_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -28,7 +25,7 @@
     };
 
     macros {
-        sentence_dot: sentence_dot {
+        sentence_dot_shift: sentence_dot_shift {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
@@ -36,7 +33,7 @@
             bindings = <
                 &kp DOT
                 &kp SPACE
-                &kp LSHFT
+                &sk LSHFT
             >;
         };
 
@@ -122,40 +119,40 @@
 
         default_layer {
             bindings = <
-&kp TAB    &kp Q    &kp W    &kp E    &kp R    &kp T            &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
-&kp ESC    &kp A    &kp S    &kp D    &kp F    &kp G            &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp DEL
- &trans  &kp Z    &kp X    &kp C    &kp V    &kp B            &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH     &trans
-                                 &mt LCTRL LSHFT   &lt 2 TAB     &kp LALT          &spc_num 1 0  &lt 3 ENTER     &mt RCTRL RSHFT
+&kp TAB        &kp Q        &kp W        &kp E        &kp R        &kp T              &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
+&kp ESC        &mt LGUI A   &mt LALT S   &mt LCTRL D  &mt LSHFT F  &kp G              &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp DEL
+&kp LSHFT      &kp Z        &kp X        &kp C        &kp V        &kp B              &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH    &kp RSHFT
+                                     &mt LCTRL ESC     &lt 2 TAB       &kp LALT             &lt 3 ENTER     &spc_num 1 0   &mt RCTRL DEL
             >;
             label = "BASE";
         };
 
         num_left_layer {
             bindings = <
-&kp N7     &kp N8   &kp N9   &kp MINUS &kp PLUS  &kp HOME       &kp PG_UP     &kp HOME     &kp UP       &kp END      &trans       &trans
-&kp N4     &kp N5   &kp N6   &kp STAR  &kp EQUAL &kp END        &kp PG_DN     &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
-&kp N1     &kp N2   &kp N3   &kp N0    &kp DOT   &kp PG_UP      &trans        &trans       &trans       &trans       &trans       &trans
-                                 &trans          &trans         &trans            &trans         &trans        &trans
+&kp N7         &kp N8       &kp N9       &kp MINUS    &kp PLUS     &kp HOME           &kp PG_UP     &kp HOME     &kp UP       &kp END      &trans       &trans
+&kp N4         &kp N5       &kp N6       &kp STAR     &kp EQUAL    &kp END            &kp PG_DN     &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
+&kp N1         &kp N2       &kp N3       &kp N0       &kp DOT      &kp PG_UP          &trans        &trans       &trans       &trans       &trans       &trans
+                                     &trans            &trans          &trans              &trans         &trans        &trans
             >;
             label = "NUM_LEFT";
         };
 
         punc_right_layer {
             bindings = <
-&trans      &trans   &trans   &trans   &trans    &trans          &kp EXCL      &kp QMARK    &kp COLON    &kp SEMI     &kp DQT      &kp SQT
-&trans      &trans   &trans   &trans   &trans    &trans          &kp COMMA     &kp DOT      &kp MINUS    &kp UNDER    &kp EQUAL    &kp PLUS
-&trans      &trans   &trans   &trans   &trans    &trans          &kp LPAR      &kp RPAR     &kp BSLH     &kp PIPE     &kp LBKT     &kp RBKT
-                                 &trans          &trans         &trans            &trans         &trans        &trans
+&trans         &trans       &trans       &trans       &trans       &trans             &kp EXCL      &kp QMARK    &kp COLON    &kp SEMI     &kp DQT      &kp SQT
+&trans         &trans       &trans       &trans       &trans       &trans             &kp COMMA     &kp DOT      &kp MINUS    &kp UNDER    &kp EQUAL    &kp PLUS
+&trans         &trans       &trans       &trans       &trans       &trans             &kp LPAR      &kp RPAR     &kp BSLH     &kp PIPE     &kp LBKT     &kp RBKT
+                                     &trans            &trans          &trans              &trans         &trans        &trans
             >;
             label = "PUNC_RIGHT";
         };
 
         fn_bt_layer {
             bindings = <
-&kp F1      &kp F2   &kp F3   &kp F4   &kp F5    &kp F6          &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
-&kp F7      &kp F8   &kp F9   &kp F10  &kp F11   &kp F12         &kp PG_UP     &kp C_PREV   &kp C_PP     &kp C_NEXT   &kp C_MUTE   &trans
-&trans      &trans   &trans   &trans   &trans    &trans          &kp PG_DN     &kp C_VOL_DN &kp C_VOL_UP &trans       &trans       &trans
-                                 &trans          &trans         &trans            &trans         &trans        &trans
+&kp F1         &kp F2       &kp F3       &kp F4       &kp F5       &kp F6             &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
+&kp F7         &kp F8       &kp F9       &kp F10      &kp F11      &kp F12            &kp PG_UP     &kp C_PREV   &kp C_PP     &kp C_NEXT   &kp C_MUTE   &trans
+&trans         &trans       &trans       &trans       &trans       &trans             &kp PG_DN     &kp C_VOL_DN &kp C_VOL_UP &trans       &trans       &trans
+                                     &trans            &trans          &trans              &trans         &trans        &trans
             >;
             label = "FN_BT";
         };
