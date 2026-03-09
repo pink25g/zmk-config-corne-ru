@@ -5,12 +5,13 @@
 / {
 
 behaviors {
-sticky_shift_quick: sticky_shift_quick {
-    compatible = "zmk,behavior-sticky-key";
-    #binding-cells = <1>;
-    release-after-ms = <1200>;
-    quick-release;
-};
+    sticky_shift_quick: sticky_shift_quick {
+        compatible = "zmk,behavior-sticky-key";
+        #binding-cells = <1>;
+        release-after-ms = <1200>;
+        quick-release;
+        bindings = <&kp>;
+    };
 
 thumb_shift_ctrl: thumb_shift_ctrl {
     compatible = "zmk,behavior-hold-tap";
