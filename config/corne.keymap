@@ -125,19 +125,18 @@ label = "NUM";
 /* NAV + PUNC */
 
 nav_layer {
-
-bindings = <
+    bindings = <
 
 &kp HOME &kp END &kp PG_UP &kp PG_DN &trans &trans      &kp EXCL &kp QMARK &kp COLON &kp SEMI &kp DQT &kp SQT
-&kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_BSPC &kp DEL   &kp COMMA &kp DOT &kp MINUS &kp UNDER &kp EQUAL &kp PLUS
-&kp C_LEFT &kp C_RIGHT &kp HOME &kp END &trans &trans   &kp LPAR &kp RPAR &kp BSLH &kp PIPE &kp LBKT &kp RBKT
+&kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LC(BSPC) &kp DEL &kp COMMA &kp DOT &kp MINUS &kp UNDER &kp EQUAL &kp PLUS
+&kp LC(LEFT) &kp LC(RIGHT) &kp HOME &kp END &trans &trans &kp LPAR &kp RPAR &kp BSLH &kp PIPE &kp LBKT &kp RBKT
 
         &trans &trans &trans &trans &trans &trans
->;
+    >;
 
-label = "NAV_PUNC";
-
+    label = "NAV_PUNC";
 };
+
 
 /* FN */
 
