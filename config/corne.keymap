@@ -10,7 +10,7 @@
             tapping-term-ms = <280>;
             bindings = <
                 &kp SPACE
-                &kp DOT &kp SPACE
+                &sentence_dot
                 &kp DOT &kp DOT &kp DOT
         >;
     };
