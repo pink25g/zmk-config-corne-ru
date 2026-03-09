@@ -7,10 +7,13 @@
         td_space_sent: tap_dance_space_sentence {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
-            bindings = <&kp SPACE>, <&sentence_dot>, <&ellipsis_macro>;
-            display-name = "Space/Sentence/Ellipsis";
-        };
+            tapping-term-ms = <280>;
+            bindings = <
+                &kp SPACE
+                &kp DOT &kp SPACE
+                &kp DOT &kp DOT &kp DOT
+        >;
+    };
 
         spc_num: space_num_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -121,8 +124,8 @@
             bindings = <
 &kp TAB    &kp Q    &kp W    &kp E    &kp R    &kp T            &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
 &kp ESC    &kp A    &kp S    &kp D    &kp F    &kp G            &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp DEL
-&kp LSHFT  &kp Z    &kp X    &kp C    &kp V    &kp B            &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH    &kp RSHFT
-                                 &mt LCTRL ESC   &lt 2 TAB     &kp LALT         &lt 3 ENTER     &spc_num 1 0   &mt RCTRL DEL
+ &trans  &kp Z    &kp X    &kp C    &kp V    &kp B            &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH     &trans
+                                 &mt LCTRL LSHFT   &lt 2 TAB     &kp LALT          &spc_num 1 0  &lt 3 ENTER     &mt RCTRL RSHFT
             >;
             label = "BASE";
         };
